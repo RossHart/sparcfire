@@ -31,7 +31,7 @@ def pca_analysis(X,standardise=True,printout=True,plot=False):
 
     correlations = np.zeros((n_var,n_components))
     for component in range(n_components):
-        component_score = score(X,pca,component+1)
+        component_score = score(X_scaled,pca,component+1)
         for v in range(n_var):
             c_coefficient, _ = spearmanr(component_score,X_scaled[:,v])
             correlations[v,component] = np.round(c_coefficient,decimals=2)
